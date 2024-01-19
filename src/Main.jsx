@@ -1,13 +1,17 @@
 import React from 'react'
 import { RiMapPinLine, RiFacebookCircleLine, RiInstagramLine, RiYoutubeLine } from "@remixicon/react"
-import HOME_BG from "./images/home-bg.jpg";
-import BREAD_1 from "./images/bread-1.png"
-import HOME_BREAD from "./images/home-bread.png"
-import NEW_BREAD_1 from "./images/new-bread-1.png"
+// import HOME_BG from "./images/home-bg.jpg";
+// import BREAD_1 from "./images/bread-1.png"
+// import HOME_BREAD from "./images/home-bread.png"
+// import NEW_BREAD_1 from "./images/new-bread-1.png"
 import "./Main.css"
+import { useImage } from './ImageProvider';
 // import IconStyleProvider from './IconStyleProvider';
 
 const Main = () => {
+
+    const [{imgList},dispatch] = useImage();
+    const {HOME_BG,BREAD_1,HOME_BREAD,NEW_BREAD_1} = imgList;
 
   return (
     <>

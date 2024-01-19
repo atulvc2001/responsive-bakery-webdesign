@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { RiCloseLine, RiMenuFill} from "@remixicon/react"
 import "./Header.css"
-import BREAD_4 from "./images/bread-4.png";
-import BREAD_1 from "./images/bread-1.png";
+// import BREAD_4 from "./images/bread-4.png";
+// import BREAD_1 from "./images/bread-1.png";
+import { useImage } from './ImageProvider';
 
 
 const Header = () => {
@@ -38,6 +39,10 @@ const Header = () => {
 
 
     },[])
+
+    // ? getting images from imgList
+    const [{ imgList }, dispatch ] = useImage();
+    const {BREAD_4, BREAD_1} = imgList;
 
     // * Add Blur Header
 
