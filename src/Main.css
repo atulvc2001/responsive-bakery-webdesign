@@ -1,3 +1,8 @@
+/* Active link */
+.active-link {
+    color: var(--first-color)
+}
+
 /* HOME */
 
 .home{
@@ -266,3 +271,4 @@
     color:var(--title-color);
     margin-bottom: 3rem;
 }
+

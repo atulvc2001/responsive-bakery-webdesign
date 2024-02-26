@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   RiMapPinLine,
   RiFacebookCircleLine,
@@ -16,8 +16,9 @@ import FavoriteCard from "./FavoriteCard";
 import NewCard from "./NewCard";
 // import IconStyleProvider from './IconStyleProvider';
 
-const Main = () => {
+const Main = ({ scrollY, setScrollY, setActiveLink }) => {
   const [{ imgList }, dispatch] = useImage();
+
   const {
     HOME_BG,
     BREAD_1,
@@ -31,8 +32,41 @@ const Main = () => {
     FAVORITE_BREAD_4,
     FAVORITE_BREAD_5,
     FAVORITE_BREAD_6,
-    VISIT_BG
+    VISIT_BG,
   } = imgList;
+
+  
+
+  const scrollActive = (sections) => {
+    const scrollDown = scrollY;
+
+    sections.forEach((current) => {
+      const sectionHeight = current.offsetHeight,
+        sectionTop = current.offsetTop - 58,
+        sectionId = current.getAttribute("id")
+        // sectionsClass = document.querySelector(
+        //   ".nav__menu a[href*=" + sectionId + "]"
+        // );
+
+      if (
+        scrollDown > sectionTop &&
+        scrollDown <= sectionTop + sectionHeight
+      ) {
+        console.log("hello")
+        setActiveLink(sectionId)
+        // sectionsClass.classList.add("active-link");
+      } 
+      // else {
+      //   sectionsClass.classList.remove("active-link");
+      // }
+    });
+  };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id");
+
+    window.addEventListener("scroll", scrollActive(sections));
+  }, [scrollY, setActiveLink]);
 
   return (
     <>
@@ -212,22 +246,24 @@ const Main = () => {
 
         {/* Visit */}
         <section className="visit section" id="visit">
-            <div className="visit__container">
-                <img src={VISIT_BG} alt="image" className="visit__bg" />
-                <div className="visit__shadow"></div>
+          <div className="visit__container">
+            <img src={VISIT_BG} alt="image" className="visit__bg" />
+            <div className="visit__shadow"></div>
 
-                <div className="visit__content container grid">
-                    <div className="visit__data">
-                        <h2 className="section__title">Visit Us</h2>
+            <div className="visit__content container grid">
+              <div className="visit__data">
+                <h2 className="section__title">Visit Us</h2>
 
-                        <p className="visit__description">
-                            Discover the best bread, we look forward to your visit.
-                        </p>
+                <p className="visit__description">
+                  Discover the best bread, we look forward to your visit.
+                </p>
 
-                        <a href="#" className="button">See Location</a>
-                    </div>
-                </div>
+                <a href="#" className="button">
+                  See Location
+                </a>
+              </div>
             </div>
+          </div>
         </section>
       </main>
     </>

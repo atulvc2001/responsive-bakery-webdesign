@@ -6,8 +6,9 @@ import "./Header.css"
 import { useImage } from './ImageProvider';
 
 
-const Header = () => {
+const Header = ({ activeLink }) => {
 
+    console.log(activeLink)
 // * Show Item
     useEffect(() => {
         const navToggle = document.getElementById("nav-toggle");
@@ -84,23 +85,23 @@ const Header = () => {
             <div className="nav__menu" id="nav-menu">
                 <ul className="nav__list">
                     <li className="nav__item">
-                        <a href="#home" className="nav__link">Home</a>
+                        <a href="#home" className={`nav__link ${activeLink === 'home' ? 'active-link' : ''}`}>Home</a>
                     </li>
 
                     <li className="nav__item">
-                        <a href="#news" className="nav__link">News</a>
+                        <a href="#news" className={`nav__link ${activeLink === 'new' ? 'active-link' : ''}`}>News</a>
                     </li>
                     
                     <li className="nav__item">
-                        <a href="#about" className="nav__link">About Us</a>
+                        <a href="#about" className={`nav__link ${activeLink === 'about' ? 'active-link' : ''}`}>About Us</a>
                     </li>
                     
                     <li className="nav__item">
-                        <a href="#favorite" className="nav__link">Favorites</a>
+                        <a href="#favorite" className={`nav__link ${activeLink === 'favorite' ? 'active-link' : ''}`}>Favorites</a>
                     </li>
                     
                     <li className="nav__item">
-                        <a href="#visit" className="nav__link">Location</a>
+                        <a href="#visit" className={`nav__link ${activeLink === 'visit' ? 'active-link' : ''}`}>Location</a>
                     </li>
                 </ul>
 
