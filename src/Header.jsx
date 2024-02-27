@@ -8,6 +8,7 @@ import { useImage } from './ImageProvider';
 
 const Header = ({ activeLink }) => {
 
+    
     console.log(activeLink)
 // * Show Item
     useEffect(() => {

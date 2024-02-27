@@ -3,28 +3,33 @@ import Main from './Main';
 import Footer from './Footer';
 import ScrollUp from './ScrollUp';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import ScrollRevealCompo from './ScrollRevealCompo';
 
 function App() {
 
   const [activeLink, setActiveLink] = useState(null);
   const [scrollY, setScrollY] = useState(0);
 
+  const handleScroll = useCallback(() => {
+    setScrollY(window.scrollY);
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
+    const onScroll = () => {
+      handleScroll();
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll);
 
     return () => {
-      window.removeEventListener("scroll",handleScroll);
+      window.removeEventListener('scroll', onScroll);
     };
-
-  },[]);
+  }, [handleScroll]);
 
   return (
     <div className="App">
+      <ScrollRevealCompo />
       <Header activeLink={activeLink} />
       <Main scrollY={scrollY} setScrollY={setScrollY} setActiveLink={setActiveLink} />
       <Footer />
