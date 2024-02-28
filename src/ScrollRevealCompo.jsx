@@ -27,7 +27,7 @@ const ScrollRevealCompo = () => {
         sr.reveal(`.favorite__card img`, { interval: 100, rotate: {z: -30 }, distance: 0 })
         
         sr.reveal(`.footer__container`, { scale: 1 })
-    })
+    },[])
     return null
 }
 
