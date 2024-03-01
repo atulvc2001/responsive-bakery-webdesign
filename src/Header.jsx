@@ -10,7 +10,7 @@ const Header = ({ activeLink }) => {
 
     
     console.log(activeLink)
-// * Show Item
+// * Show Item in navbar
     useEffect(() => {
         const navToggle = document.getElementById("nav-toggle");
         const navMenu = document.getElementById("nav-menu");
