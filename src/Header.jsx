@@ -23,7 +23,7 @@ const Header = ({ activeLink }) => {
             })
         }
     
-        // * Menu hidden
+        // * Menu hidden from main page
         if(navClose){
             navClose.addEventListener('click',() => {
                 navMenu.classList.remove('show-menu')
