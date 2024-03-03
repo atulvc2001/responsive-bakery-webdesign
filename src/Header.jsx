@@ -46,7 +46,7 @@ const Header = ({ activeLink }) => {
     const [{ imgList }, dispatch ] = useImage();
     const {BREAD_4, BREAD_1} = imgList;
 
-    // * Add Blur Header
+    // * Add Blur Header after certain view distance
 
     const [scrollY, setScrollY] = useState(0)
 
